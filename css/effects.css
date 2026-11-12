@@ -1,0 +1,384 @@
+/* 三麻オレンジ杯 — 演出サンプルページ専用（index.html / styles.css は変更しない） */
+
+.fx-header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 0.9rem;
+}
+.fx-header-nav a {
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: var(--c-ink);
+  padding: 0.35rem 0.15rem;
+}
+.fx-header-nav a:hover,
+.fx-header-nav a[aria-current="page"] {
+  color: var(--c-accent);
+}
+
+.fx-page {
+  padding: 1.6rem 0 3.5rem;
+  position: relative;
+}
+.fx-intro {
+  margin: 0 0 1.4rem;
+}
+.fx-intro h1 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-mincho);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 4.5vw, 2.1rem);
+  letter-spacing: 0.06em;
+}
+.fx-intro p {
+  margin: 0;
+  color: var(--c-ink-soft);
+  font-size: 0.95rem;
+}
+
+.motion-note {
+  display: none;
+  margin: 0 0 1.1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  background: var(--c-accent-soft);
+  color: var(--c-ink-soft);
+  font-size: 0.88rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-note { display: block; }
+}
+
+.fx-controls {
+  position: sticky;
+  top: var(--hdr-h);
+  z-index: 40;
+  margin: 0 0 1.2rem;
+  padding: 0.75rem 0.85rem 0.9rem;
+  background: rgba(255, 247, 240, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+.fx-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.fx-step {
+  appearance: none;
+  border: 1px solid var(--c-border);
+  background: #fff;
+  color: var(--c-ink);
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 44px;
+}
+.fx-step:hover:not(:disabled) {
+  border-color: var(--c-accent);
+  color: var(--c-accent-deep);
+  background: var(--c-accent-soft);
+}
+.fx-step:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.fx-nums {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.fx-num {
+  appearance: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--c-accent);
+  background: #fff;
+  color: var(--c-accent-deep);
+  font-family: var(--font-en);
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+.fx-num:hover {
+  background: var(--c-accent-soft);
+}
+.fx-num[aria-selected="true"] {
+  background: var(--c-accent);
+  color: #fff;
+  border-color: var(--c-accent);
+}
+.fx-caption {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  color: var(--c-ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.fx-replay {
+  display: none;
+  margin: 0.7rem auto 0;
+}
+body[data-effect="3"] .fx-replay { display: inline-flex; }
+
+.demo-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  border-radius: 24px;
+  background: linear-gradient(180deg, var(--c-bg) 0%, var(--c-bg-soft) 100%);
+  box-shadow: var(--shadow-card);
+  padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1rem, 3vw, 1.8rem) 2rem;
+}
+.demo-stage__pattern,
+.float-layer,
+#confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.demo-stage__pattern,
+.float-layer {
+  opacity: 0;
+  visibility: hidden;
+}
+body[data-effect="1"] .float-layer,
+body[data-effect="2"] .demo-stage__pattern {
+  opacity: 1;
+  visibility: visible;
+}
+.demo-stage__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 1. みかんと牌がゆらゆら */
+.float-item {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s, 52px);
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(229, 90, 0, 0.16));
+  animation: floatBob var(--d, 16s) ease-in-out var(--delay, 0s) infinite;
+  will-change: transform;
+}
+.float-item svg { width: 100%; height: auto; display: block; }
+@keyframes floatBob {
+  0%, 100% { transform: translate(0, 0) rotate(-8deg); }
+  50% { transform: translate(var(--dx, 14px), var(--dy, -18px)) rotate(8deg); }
+}
+
+/* 2. ドット＆しましま（transform で軽く動かす） */
+.demo-stage__pattern {
+  inset: -60%;
+  background-color: transparent;
+  background-image:
+    repeating-linear-gradient(
+      128deg,
+      rgba(255, 122, 26, 0.10) 0 14px,
+      rgba(255, 184, 77, 0.08) 14px 28px,
+      rgba(255, 247, 240, 0.0) 28px 48px
+    ),
+    radial-gradient(circle at 8px 8px, rgba(255, 122, 26, 0.28) 6px, transparent 7px);
+  background-size: auto, 36px 36px;
+  animation: patternDrift 42s linear infinite;
+  will-change: transform;
+}
+@keyframes patternDrift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-72px, -72px); }
+}
+
+/* 3. ぽよん */
+body[data-effect="3"] [data-poyon] {
+  opacity: 0;
+  transform: translateY(26px) scale(0.94);
+}
+body[data-effect="3"] [data-poyon].is-in {
+  animation: poyonIn 0.72s cubic-bezier(0.34, 1.45, 0.64, 1) both;
+  animation-delay: var(--poyon-delay, 0s);
+}
+@keyframes poyonIn {
+  0% { opacity: 0; transform: translateY(26px) scale(0.94); }
+  60% { opacity: 1; transform: translateY(-8px) scale(1.04); }
+  80% { transform: translateY(4px) scale(0.99); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.poyon-hint {
+  display: none;
+  margin: 0.4rem 0 1.2rem;
+  text-align: center;
+  color: var(--c-ink-mute);
+  font-size: 0.88rem;
+}
+body[data-effect="3"] .poyon-hint { display: block; }
+.poyon-spacer {
+  display: none;
+  height: min(28vh, 180px);
+}
+body[data-effect="3"] .poyon-spacer { display: block; }
+
+/* 4. ボタンのつぶれてゆらゆら */
+body[data-effect="4"] .demo-stage .btn {
+  transform-origin: center;
+}
+body[data-effect="4"] .demo-stage .btn.is-squish {
+  animation: squishWiggle 0.62s ease;
+}
+@keyframes squishWiggle {
+  0% { transform: scale(1, 1) rotate(0deg); }
+  25% { transform: scale(1.08, 0.88) rotate(-2deg); }
+  45% { transform: scale(0.94, 1.07) rotate(3deg); }
+  65% { transform: scale(1.04, 0.96) rotate(-2deg); }
+  82% { transform: scale(0.99, 1.02) rotate(1deg); }
+  100% { transform: scale(1, 1) rotate(0deg); }
+}
+
+/* 5. カウントダウンめくり */
+.flip-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15em;
+}
+.flip-digit {
+  --flip-h: 1.15em;
+  position: relative;
+  display: inline-block;
+  width: 0.78em;
+  height: var(--flip-h);
+  perspective: 280px;
+  font-variant-numeric: tabular-nums;
+}
+.flip-digit__rotor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: none;
+}
+body[data-effect="5"] .flip-digit.is-flipping .flip-digit__rotor {
+  transition: transform 0.48s cubic-bezier(0.4, 0.1, 0.2, 1);
+  transform: rotateX(-180deg);
+}
+.flip-digit__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  font-family: var(--font-en);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--c-accent-deep);
+}
+.flip-digit__face--back {
+  transform: rotateX(180deg);
+}
+body[data-effect="5"] .flip-digit__face {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 0 rgba(229, 90, 0, 0.12);
+}
+body[data-effect="5"] .cd { overflow: visible; }
+body[data-effect="5"] .cd--hero {
+  background: linear-gradient(165deg, rgba(255, 228, 204, 0.95), rgba(255, 255, 255, 0.92));
+}
+body[data-effect="5"] .cd__unit { min-width: clamp(64px, 16vw, 100px); }
+
+/* サンプル英雄エリア */
+.demo-hero {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.demo-hero .hero__logo-plate {
+  max-width: 160px;
+  margin-bottom: 0.8rem;
+}
+.demo-hero .hero__logo { max-width: 148px; }
+.demo-hero .hero__title {
+  font-size: clamp(1.4rem, 4.5vw, 2.1rem);
+}
+.demo-hero .hero__dates {
+  margin-bottom: 1.1rem;
+}
+.demo-hero .cd--hero {
+  margin-bottom: 1.2rem;
+  background: linear-gradient(165deg, rgba(255, 228, 204, 0.95), rgba(255, 255, 255, 0.92));
+}
+
+.demo-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+.demo-card {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem 1.2rem 1.3rem;
+}
+.demo-card h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-mincho);
+  font-size: 1.15rem;
+}
+.demo-card p {
+  margin: 0 0 0.9rem;
+  color: var(--c-ink-soft);
+  font-size: 0.95rem;
+}
+.demo-card .btn { width: 100%; }
+
+#confetti {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .demo-cards { grid-template-columns: 1fr; }
+  .fx-step { flex: 1 1 auto; }
+  .fx-nums { width: 100%; justify-content: center; order: -1; }
+  .fx-tabs { gap: 0.45rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-item,
+  .demo-stage__pattern,
+  body[data-effect="3"] [data-poyon],
+  body[data-effect="3"] [data-poyon].is-in,
+  body[data-effect="4"] .demo-stage .btn.is-squish,
+  body[data-effect="5"] .flip-digit.is-flipping .flip-digit__rotor {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1;
+    visibility: visible;
+  }
+  .poyon-spacer { display: none !important; }
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>演出サンプル｜三麻オレンジ杯</title>
+  <meta name="description" content="三麻オレンジ杯ホームページの演出サンプル。6つの動きを順番に確認できます。">
+  <meta name="theme-color" content="#FF7A1A">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/effects.css">
+</head>
+<body data-effect="1">
+  <a href="#fx-panel" class="sr-only">本文へスキップ</a>
+
+  <header class="hdr" id="site-header">
+    <div class="hdr__inner">
+      <a class="hdr__brand" href="index.html" aria-label="三麻オレンジ杯 本ページへ">
+        <span class="hdr__brand-ja">三麻オレンジ杯</span>
+        <span class="hdr__brand-en">SANMA ORANGE CUP</span>
+      </a>
+      <nav class="fx-header-nav" aria-label="ページ案内">
+        <a href="index.html">本ページ</a>
+        <a href="effects.html" aria-current="page">演出サンプル</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="fx-page" id="main">
+    <div class="shell">
+      <div class="fx-intro">
+        <h1>演出サンプル</h1>
+        <p>本ページと同じ雰囲気で、6つの演出をひとつずつ確認できます。番号か「前へ／次へ」で切り替えてください。</p>
+      </div>
+
+      <p class="motion-note">お使いの環境では「動きを減らす」設定がオンのため、演出はほぼ静止して表示されます。</p>
+
+      <div class="fx-controls">
+        <div class="fx-tabs" role="tablist" aria-label="演出の選択">
+          <button type="button" class="fx-step" data-fx-prev>前へ</button>
+          <ul class="fx-nums">
+            <li><button type="button" class="fx-num" role="tab" id="tab-1" aria-controls="fx-panel" aria-selected="true" data-fx="1">1</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-2" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="2">2</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-3" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="3">3</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-4" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="4">4</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-5" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="5">5</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-6" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="6">6</button></li>
+          </ul>
+          <button type="button" class="fx-step" data-fx-next>次へ</button>
+        </div>
+        <p class="fx-caption" data-fx-caption aria-live="polite">背景にみかんと麻雀牌が、ゆっくり浮かんでゆらゆらします。</p>
+        <button type="button" class="btn btn-ghost fx-replay" data-fx-replay>もう一度再生</button>
+      </div>
+
+      <div id="fx-panel" class="demo-stage" role="tabpanel" aria-labelledby="tab-1">
+        <div class="float-layer" aria-hidden="true">
+          <span class="float-item" style="--x:6%;--y:8%;--s:56px;--d:15s;--delay:-2s;--dx:16px;--dy:-20px">
+            <svg viewBox="0 0 64 64" focusable="false"><use href="#svg-orange"></use></svg>
+          </span>
+          <span class="float-item" style="--x:78%;--y:12%;--s:44px;--d:18s;--delay:-6s;--dx:-14px;--dy:-16px">
+            <svg viewBox="0 0 48 64" focusable="false"><use href="#svg-tile-chun"></use></svg>
+          </span>
+          <span class="float-item" style="--x:12%;--y:58%;--s:48px;--d:17s;--delay:-9s;--dx:12px;--dy:18px">
+            <svg viewBox="0 0 48 64" focusable="false"><use href="#svg-tile-hatsu"></use></svg>
+          </span>
+          <span class="float-item" style="--x:88%;--y:62%;--s:50px;--d:14s;--delay:-4s;--dx:-18px;--dy:-12px">
+            <svg viewBox="0 0 64 64" focusable="false"><use href="#svg-orange"></use></svg>
+          </span>
+          <span class="float-item" style="--x:42%;--y:4%;--s:36px;--d:19s;--delay:-11s;--dx:10px;--dy:14px">
+            <svg viewBox="0 0 64 64" focusable="false"><use href="#svg-orange"></use></svg>
+          </span>
+          <span class="float-item" style="--x:58%;--y:70%;--s:42px;--d:16s;--delay:-1s;--dx:-12px;--dy:-18px">
+            <svg viewBox="0 0 48 64" focusable="false"><use href="#svg-tile-haku"></use></svg>
+          </span>
+          <span class="float-item" style="--x:28%;--y:78%;--s:40px;--d:20s;--delay:-7s;--dx:14px;--dy:-10px">
+            <svg viewBox="0 0 64 64" focusable="false"><use href="#svg-orange"></use></svg>
+          </span>
+          <span class="float-item" style="--x:70%;--y:38%;--s:38px;--d:13s;--delay:-5s;--dx:10px;--dy:16px">
+            <svg viewBox="0 0 48 64" focusable="false"><use href="#svg-tile-east"></use></svg>
+          </span>
+        </div>
+
+        <div class="demo-stage__pattern" aria-hidden="true"></div>
+        <canvas id="confetti" aria-hidden="true"></canvas>
+
+        <div class="demo-stage__content">
+          <div class="demo-hero">
+            <div class="hero__logo-plate" data-poyon style="--poyon-delay:0s">
+              <img class="hero__logo" src="images/logo.svg" alt="三麻オレンジ杯 仮ロゴ" width="512" height="512">
+            </div>
+            <div class="cd cd--hero" data-poyon style="--poyon-delay:0.08s" aria-live="off">
+              <p class="cd__label">開幕まで</p>
+              <p class="cd__sub">2027年4月9日（金）21:00 開始予定（仮・Asia/Tokyo）</p>
+              <div class="cd__grid">
+                <div class="cd__unit">
+                  <div class="cd__num flip-row" data-cd="days"></div>
+                  <span class="cd__cap">DAYS</span>
+                </div>
+                <span class="cd__sep" aria-hidden="true">:</span>
+                <div class="cd__unit">
+                  <div class="cd__num flip-row" data-cd="hours"></div>
+                  <span class="cd__cap">HOURS</span>
+                </div>
+                <span class="cd__sep" aria-hidden="true">:</span>
+                <div class="cd__unit">
+                  <div class="cd__num flip-row" data-cd="mins"></div>
+                  <span class="cd__cap">MIN</span>
+                </div>
+                <span class="cd__sep" aria-hidden="true">:</span>
+                <div class="cd__unit">
+                  <div class="cd__num flip-row" data-cd="secs"></div>
+                  <span class="cd__cap">SEC</span>
+                </div>
+              </div>
+              <p class="sr-only" data-cd-live>開幕までの残り時間を読み上げます。</p>
+            </div>
+            <h2 class="hero__title" data-poyon style="--poyon-delay:0.16s">
+              <span class="hero__title-ja">三麻オレンジ杯</span>
+              <span class="hero__title-en">3人麻雀チーム戦</span>
+            </h2>
+            <p class="hero__dates" data-poyon style="--poyon-delay:0.22s">2027年4月9日（金）〜11日（日）</p>
+            <div class="hero__cta" data-poyon style="--poyon-delay:0.28s">
+              <a class="btn btn-entry" href="#" data-fx-entry>エントリーする</a>
+            </div>
+          </div>
+
+          <p class="poyon-hint">下にスクロールすると、カードがぽよんと現れます。上の「もう一度再生」でも見られます。</p>
+          <div class="poyon-spacer" aria-hidden="true"></div>
+
+          <div class="demo-cards">
+            <article class="demo-card" data-poyon style="--poyon-delay:0.05s">
+              <h3>出場チーム</h3>
+              <p>エントリー受付後に、チーム名とメンバーを掲載します。</p>
+              <a class="btn btn-ghost" href="#fx-panel" data-fx-sample-btn>サンプルを見る</a>
+            </article>
+            <article class="demo-card" data-poyon style="--poyon-delay:0.16s">
+              <h3>優勝賞品</h3>
+              <p>スイーツカタログをご用意しています。楽しい三日間にしましょう。</p>
+              <a class="btn btn-ghost" href="#fx-panel" data-fx-sample-btn>サンプルを見る</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="svg-orange" viewBox="0 0 64 64">
+      <circle cx="32" cy="36" r="22" fill="#FF9A2A"/>
+      <circle cx="32" cy="36" r="22" fill="none" stroke="#E55A00" stroke-width="1.5"/>
+      <path d="M32 16c4 6 10 8 14 7-3 5-10 7-14 5-4 2-11 0-14-5 4 1 10-1 14-7z" fill="#3FA34D"/>
+      <path d="M32 16c0 6 2 10 5 13" fill="none" stroke="#2D7A38" stroke-width="1.6" stroke-linecap="round"/>
+      <ellipse cx="24" cy="32" rx="6" ry="4" fill="#FFD09A" opacity="0.45"/>
+    </symbol>
+    <symbol id="svg-tile-chun" viewBox="0 0 48 64">
+      <rect x="2" y="2" width="44" height="60" rx="6" fill="#FFFAF3" stroke="#E55A00" stroke-width="2.4"/>
+      <text x="24" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#D62828" font-family="sans-serif">中</text>
+    </symbol>
+    <symbol id="svg-tile-hatsu" viewBox="0 0 48 64">
+      <rect x="2" y="2" width="44" height="60" rx="6" fill="#FFFAF3" stroke="#E55A00" stroke-width="2.4"/>
+      <text x="24" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#2D7A38" font-family="sans-serif">發</text>
+    </symbol>
+    <symbol id="svg-tile-haku" viewBox="0 0 48 64">
+      <rect x="2" y="2" width="44" height="60" rx="6" fill="#FFFAF3" stroke="#E55A00" stroke-width="2.4"/>
+      <rect x="12" y="16" width="24" height="32" rx="2" fill="none" stroke="#C4A484" stroke-width="2"/>
+    </symbol>
+    <symbol id="svg-tile-east" viewBox="0 0 48 64">
+      <rect x="2" y="2" width="44" height="60" rx="6" fill="#FFFAF3" stroke="#E55A00" stroke-width="2.4"/>
+      <text x="24" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#3D2918" font-family="sans-serif">東</text>
+    </symbol>
+  </svg>
+
+  <script src="js/effects.js" defer></script>
+</body>
+</html>
