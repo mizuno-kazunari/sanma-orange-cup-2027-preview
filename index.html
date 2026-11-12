@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>三麻オレンジ杯</title>
+  <meta name="description" content="三麻オレンジ杯。じゃんたま（雀魂）三人麻雀のチーム戦。2027年4月9日（金）〜11日（日）開催。主催 水野かずなり。#三麻オレンジ杯">
+  <meta name="theme-color" content="#FF7A1A">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main" class="sr-only">本文へスキップ</a>
+
+  <header class="hdr" id="site-header">
+    <div class="hdr__inner">
+      <a class="hdr__brand" href="#top" aria-label="三麻オレンジ杯 ホーム">
+        <span class="hdr__brand-ja">三麻オレンジ杯</span>
+        <span class="hdr__brand-en">SANMA ORANGE CUP</span>
+      </a>
+      <nav class="hdr__nav" aria-label="メインナビゲーション">
+        <ul>
+          <li><a href="#top"><span class="ja">ホーム</span><span class="en">HOME</span></a></li>
+          <li><a href="#about"><span class="ja">大会について</span><span class="en">ABOUT</span></a></li>
+          <li><a href="#entry"><span class="ja">エントリー</span><span class="en">ENTRY</span></a></li>
+          <li><a href="#format"><span class="ja">形式</span><span class="en">FORMAT</span></a></li>
+          <li><a href="#rules"><span class="ja">ルール</span><span class="en">RULES</span></a></li>
+          <li><a href="#teams"><span class="ja">チーム</span><span class="en">TEAMS</span></a></li>
+          <li><a href="#results"><span class="ja">リザルト</span><span class="en">RESULTS</span></a></li>
+        </ul>
+      </nav>
+      <button class="hdr__burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer" hidden>
+    <nav aria-label="モバイルナビゲーション">
+      <ul>
+        <li><a href="#top"><span class="en">HOME</span><span class="ja">ホーム</span></a></li>
+        <li><a href="#about"><span class="en">ABOUT</span><span class="ja">大会について</span></a></li>
+        <li><a href="#entry"><span class="en">ENTRY</span><span class="ja">エントリー</span></a></li>
+        <li><a href="#format"><span class="en">FORMAT</span><span class="ja">形式</span></a></li>
+        <li><a href="#rules"><span class="en">RULES</span><span class="ja">ルール</span></a></li>
+        <li><a href="#teams"><span class="en">TEAMS</span><span class="ja">チーム</span></a></li>
+        <li><a href="#results"><span class="en">RESULTS</span><span class="ja">リザルト</span></a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__veil" aria-hidden="true"></div>
+      <div class="hero__rays" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="hero__logo-plate">
+          <img
+            class="hero__logo"
+            src="images/logo.svg"
+            alt="三麻オレンジ杯 仮ロゴ"
+            width="512"
+            height="512"
+          >
+        </div>
+        <div class="cd cd--hero" data-countdown="kickoff" data-target="2027-04-09T21:00:00+09:00" aria-live="polite">
+          <p class="cd__label">開幕まで</p>
+          <p class="cd__sub">2027年4月9日（金）21:00 開始予定（仮・Asia/Tokyo）</p>
+          <div class="cd__grid" data-cd-grid>
+            <div class="cd__unit"><span class="cd__num" data-cd="days">--</span><span class="cd__cap">DAYS</span></div>
+            <span class="cd__sep" aria-hidden="true">:</span>
+            <div class="cd__unit"><span class="cd__num" data-cd="hours">--</span><span class="cd__cap">HOURS</span></div>
+            <span class="cd__sep" aria-hidden="true">:</span>
+            <div class="cd__unit"><span class="cd__num" data-cd="mins">--</span><span class="cd__cap">MIN</span></div>
+            <span class="cd__sep" aria-hidden="true">:</span>
+            <div class="cd__unit"><span class="cd__num" data-cd="secs">--</span><span class="cd__cap">SEC</span></div>
+          </div>
+          <p class="cd__done" data-cd-done hidden>大会期間中</p>
+        </div>
+        <p class="hero__eyebrow">
+          <span class="hero__eyebrow-line" aria-hidden="true"></span>
+          SANMA ORANGE CUP
+          <span class="hero__eyebrow-line" aria-hidden="true"></span>
+        </p>
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__title-ja">三麻オレンジ杯</span>
+          <span class="hero__title-en">3人麻雀チーム戦</span>
+        </h1>
+        <p class="hero__tagline">初心者歓迎、楽しく戦うことを最優先に。</p>
+        <p class="hero__dates">2027年4月9日（金）〜11日（日）</p>
+        <p class="hero__meta">
+          <span class="hero__meta-item">主催：水野かずなり</span>
+          <span class="hero__meta-sep" aria-hidden="true">｜</span>
+          <span class="hero__meta-item">じゃんたま 3人麻雀</span>
+          <span class="hero__meta-sep" aria-hidden="true">｜</span>
+          <span class="hero__meta-item">#三麻オレンジ杯</span>
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn-entry" data-entry-form data-entry-label href="#entry">エントリーフォーム（準備中）</a>
+          <a class="btn btn-ghost" href="#about">大会について</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-txt">SCROLL</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="shell">
+        <div class="sect-head">
+          <div>
+            <div class="en">ABOUT</div>
+            <h2 id="about-heading">大会について</h2>
+          </div>
+        </div>
+
+        <div class="about">
+          <div class="washi about__text">
+            <p>「三麻オレンジ杯」は、オレンジを基調にした可愛いポップな雰囲気の、じゃんたま（雀魂）三人麻雀チーム戦です。主催者・水野かずなりのトレードマークカラーを活かして、わくわくする三日間をお届けします。</p>
+            <p>参加しやすいこと、楽しく戦うことをいちばん大切にしています。初心者の方も大歓迎です。</p>
+            <p>配信はイチナナ（17LIVE）を軸に、必要に応じてYouTubeでも同時配信します。</p>
+            <p class="viewer-note">視聴者の皆さまへ：他者の打牌への批判、煽り行為、誹謗中傷はご遠慮ください。温かい応援をよろしくお願いします！</p>
+          </div>
+
+          <div class="about-stack">
+            <div class="washi about__info">
+              <dl>
+                <div>
+                  <dt>開催期間</dt>
+                  <dd><span class="nowrap">2027年4月9日（金）</span> 〜 <span class="nowrap">11日（日）</span></dd>
+                </div>
+                <div>
+                  <dt>形　式</dt>
+                  <dd>じゃんたま 3人麻雀・チーム戦（1チーム3名）</dd>
+                </div>
+                <div>
+                  <dt>会　場</dt>
+                  <dd>雀魂（じゃんたま）／17LIVE配信</dd>
+                </div>
+                <div>
+                  <dt>主　催</dt>
+                  <dd>水野かずなり</dd>
+                </div>
+                <div>
+                  <dt>ハッシュタグ</dt>
+                  <dd><a href="https://x.com/hashtag/%E4%B8%89%E9%BA%BB%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8%E6%9D%AF" target="_blank" rel="noopener noreferrer">#三麻オレンジ杯</a></dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="cd" id="countdown" data-countdown="next-match" aria-live="polite">
+              <p class="cd__label">次の対局まで</p>
+              <p class="cd__sub" data-cd-sub>2027年4月9日（金）21:00 開始予定（仮・Asia/Tokyo）</p>
+              <div class="cd__grid" data-cd-grid>
+                <div class="cd__unit"><span class="cd__num" data-cd="days">--</span><span class="cd__cap">DAYS</span></div>
+                <span class="cd__sep" aria-hidden="true">:</span>
+                <div class="cd__unit"><span class="cd__num" data-cd="hours">--</span><span class="cd__cap">HOURS</span></div>
+                <span class="cd__sep" aria-hidden="true">:</span>
+                <div class="cd__unit"><span class="cd__num" data-cd="mins">--</span><span class="cd__cap">MIN</span></div>
+                <span class="cd__sep" aria-hidden="true">:</span>
+                <div class="cd__unit"><span class="cd__num" data-cd="secs">--</span><span class="cd__cap">SEC</span></div>
+              </div>
+              <p class="cd__done" data-cd-done hidden>対局中</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="entry" aria-labelledby="entry-heading">
+      <div class="shell">
+        <div class="sect-head">
+          <div>
+            <div class="en">ENTRY</div>
+            <h2 id="entry-heading">エントリー</h2>
+          </div>
+        </div>
+        <p class="sect-lead">リーダー招待制です。リーダーがメンバー2名を集めて、チーム3名分をエントリーフォームから申し込んでください。受付期間は<span class="badge-temp">調整中</span>です。</p>
+
+        <div class="washi entry-panel">
+          <ol class="entry-panel__steps">
+            <li>
+              <strong>01 メンバーを招待</strong>
+              リーダーがメンバー2名を招待し、1チーム3名で編成します。
+            </li>
+            <li>
+              <strong>02 フォームから申込</strong>
+              リーダーがエントリーフォームに必要事項を入力して申し込みます。
+            </li>
+            <li>
+              <strong>03 掲載を待つ</strong>
+              受付後、出場チームをこのページに掲載します。
+            </li>
+          </ol>
+          <a class="btn btn-entry" data-entry-form data-entry-label href="#">エントリーフォーム（準備中）</a>
+          <p class="entry-panel__note note">フォームは準備中です。公開できしだい、このボタンから申し込めるようにします。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="format" aria-labelledby="format-heading">
+      <div class="shell">
+        <div class="sect-head">
+          <div>
+            <div class="en">FORMAT</div>
+            <h2 id="format-heading">大会形式</h2>
+          </div>
+        </div>
+        <p class="sect-lead">規模はリーダー約33名、総勢約99名を想定しています。予選と決勝の日程の割り振りは<span class="badge-temp">調整中</span>です。</p>
+
+        <div class="flow">
+          <article class="flow-card">
+            <p class="flow-card__num">STEP 01</p>
+            <h3>予選</h3>
+            <p>開催期間内の自動マッチングで対戦します。楽しく、たくさん卓を重ねて順位を競います。</p>
+          </article>
+          <article class="flow-card">
+            <p class="flow-card__num">STEP 02</p>
+            <h3>進出</h3>
+            <p>予選を勝ち抜いた上位3チームが決勝に進みます。</p>
+          </article>
+          <article class="flow-card">
+            <p class="flow-card__num">STEP 03</p>
+            <h3>決勝</h3>
+            <p>3チーム総当たり3戦。実況解説は主催の水野かずなりが担当します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prize" aria-labelledby="prize-heading">
+      <div class="shell">
+        <div class="sect-head">
+          <div>
+            <div class="en">PRIZE &amp; GUEST</div>
+            <h2 id="prize-heading">賞品・ゲスト</h2>
+          </div>
+        </div>
+        <div class="prize-grid">
+          <article class="prize-card">
+            <h3>優勝賞品</h3>
+            <p>スイーツカタログをご用意しています。2位以下の賞品は<span class="badge-temp">調整中</span>です。</p>
+          </article>
+          <article class="prize-card">
+            <h3>ゲスト</h3>
+            <p>イチナナV麻雀ライバーを招待予定です。決勝でのトークや盛り上げを想定しています。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rules" aria-labelledby="rules-heading">
+      <div class="shell">
+        <div class="sect-head">
+          <div>
+            <div class="en">RULES</div>
+            <h2 id="rules-heading">大会ルール</h2>
+          </div>
+        </div>
+        <div class="rules-grid">
+          <article class="rule-card">
+            <div class="rule-card__num">01</div>
+            <h3>チーム編成</h3>
+            <p>1チーム3名（リーダー1名＋メンバー2名）。リーダー招待制でエントリーします。</p>
+          </article>
+          <article class="rule-card">
+            <div class="rule-card__num">02</div>
+            <h3>対局ルール</h3>
+            <p>じゃんたま（雀魂）の3人麻雀。細かい数値は調整中のため、下表では段位戦の一般的な初期値を「予定」として示しています。</p>
+          </article>
+          <article class="rule-card">
+            <div class="rule-card__num">03</div>
+            <h3>進行</h3>
+            <p>予選は期間内の自動マッチング。決勝は3チーム総当たり3戦です。</p>
+          </article>
+          <article class="rule-card">
+            <div class="rule-card__num">04</div>
+            <h3>配信と応援</h3>
+            <p>イチナナを軸に配信し、必要に応じてYouTubeでも同時配信します。温かい応援をお願いします。</p>
+          </article>
+        </div>
+
+        <div class="washi rules-table-wrap">
+          <table class="rules-table">
+            <tbody>
+              <tr>
+                <th scope="row">試合会場</th>
+                <td>雀魂アプリ内　／　大会IDは<span class="badge-temp">調整中</span></td>
+              </tr>
+              <tr>
+                <th scope="row">ルール詳細</th>
+                <td>
+                  <p class="rules-note-lead">以下は雀魂・三人麻雀（段位戦）の一般的な初期値です。大会での採用値は<span class="badge-temp">調整中</span>のため、確定前の「予定」として掲載しています。</p>
+                  <ul class="rules-detail-list">
+                    <li>局数：三人南（予定）</li>
+                    <li>持ち点 35,000 ／ 返し点 35,000（予定）</li>
+                    <li>1位必要点 40,000（予定）</li>
+                    <li>ウマ：15-0-15（予定）</li>
+                    <li>喰いタンあり・後付けあり（アリアリ）（予定）</li>
+                    <li>赤ドラあり（五筒・五索の2枚）（予定）</li>
+                    <li>抜きドラ（北）あり（予定）</li>
+                    <li>ツモ損あり（予定）</li>
+                    <li>チーなし（予定）</li>
+                    <li>一発・裏ドラ・カンドラあり（予定）</li>
+                    <li>ダブロンあり（予定）</li>
+                    <li>途中流局：九種九牌・四槓散了のみ（予定）</li>
+                    <li>切り上げ満貫：<span class="badge-temp">調整中</span></li>
+                    <li>飛び：<span class="badge-temp">調整中</span></li>
+                    <li>その他の細目：<span class="badge-temp">調整中</span></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">進行ペース</th>
+                <td>予選は期間内の自動マッチング。決勝は総当たり3戦。各日の開始時刻・卓数は<span class="badge-temp">調整中</span>（カウントダウンの21:00は仮）です。</td>
+              </tr>
+              <tr>
+                <th scope="row">配信時の注意</th>
+                <td>配信の遅延秒数などは<span class="badge-temp">調整中</span>です。決まりしだい掲載します。</td>
+              </tr>
+              <tr>
+                <th scope="row">注意事項</th>
+                <td>
+                  <p class="rules-note-lead">本大会は、楽しく戦うことを最優先としています。視聴者の皆さま・参加者の皆さまには、この目的を妨げる以下の行為をご遠慮ください。</p>
+                  <ul class="rules-detail-list">
+                    <li>他者の打牌への批判</li>
+                    <li>煽り行為</li>
+                    <li>参加者・視聴者への誹謗中傷（配信コメント・SNSを問わず）</li>
+                    <li>談合・八百長・通し（サイン）などの不正行為</li>
+                    <li>対局中に他者から助言を受ける行為、他家の配信を見ながら打つ行為（ゴースティング）</li>
+                    <li>その他、運営が不適切と判断する行為</li>
+                  </ul>
+                  <p class="rules-note-lead">違反があった場合は、運営の判断により注意などの対応を行うことがあります。</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="teams" aria-labelledby="teams-heading">
+      <div class="shell">
+        <div class="sect-head">
+          <div>
+            <div class="en">TEAMS</div>
+            <h2 id="teams-heading">出場チーム</h2>
+          </div>
+        </div>
+        <div class="washi placeholder-card">
+          <p class="results-empty-state__badge"><span class="ribbon">COMING SOON</span></p>
+          <p class="placeholder-card__title">エントリー受付後に掲載</p>
+          <p class="placeholder-card__hint">チーム名・メンバー・紹介文は、エントリーが集まりしだいこちらに掲載します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results" aria-labelledby="results-heading">
+      <div class="shell">
+        <div class="sect-head">
+          <div>
+            <div class="en">RESULTS</div>
+            <h2 id="results-heading">リザルト</h2>
+          </div>
+        </div>
+        <p class="sect-lead">チームランキング・個人スコア TOP3・最高スコア TOP3 を、開幕後に掲載します。</p>
+        <p class="results-sample-banner" data-sample-banner hidden>※これはお試し表示です（サンプルデータ）</p>
+        <p class="results-caption note">対局結果は data/results.json をもとに集計します（開幕後に更新）。</p>
+
+        <article class="results-block" id="results-teams" aria-labelledby="results-teams-heading">
+          <header class="results-block__head">
+            <p class="results-block__en">TEAM STANDINGS</p>
+            <h3 id="results-teams-heading">チームランキング</h3>
+          </header>
+          <div class="results-block__body" data-results="teamRanking">
+            <div class="results-empty-state" data-empty-state>
+              <p class="results-empty-state__badge"><span class="ribbon">BEFORE KICKOFF</span></p>
+              <p class="results-empty-state__title">開幕前｜2027年4月9日より更新</p>
+              <p class="results-empty-state__hint">チームランキング（合計点・半荘数）は開幕後に表示します。</p>
+            </div>
+            <div class="results-table-wrap" hidden data-filled-state>
+              <table class="results-table" aria-label="チームランキング">
+                <thead>
+                  <tr>
+                    <th scope="col">順位</th>
+                    <th scope="col">チーム</th>
+                    <th scope="col">点数</th>
+                    <th scope="col">半荘数</th>
+                  </tr>
+                </thead>
+                <tbody data-results-body="teamRanking"></tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="results-block" id="results-players" aria-labelledby="results-players-heading">
+          <header class="results-block__head">
+            <p class="results-block__en">PLAYER SCORES</p>
+            <h3 id="results-players-heading">個人スコア TOP3</h3>
+          </header>
+          <div class="results-block__body" data-results="playerScores">
+            <div class="results-empty-state" data-empty-state>
+              <p class="results-empty-state__badge"><span class="ribbon">BEFORE KICKOFF</span></p>
+              <p class="results-empty-state__title">開幕前｜2027年4月9日より更新</p>
+              <p class="results-empty-state__hint">個人スコア TOP3 は開幕後に表示します。</p>
+            </div>
+            <div class="results-table-wrap" hidden data-filled-state>
+              <table class="results-table" aria-label="個人スコア TOP3">
+                <thead>
+                  <tr>
+                    <th scope="col">順位</th>
+                    <th scope="col">選手名</th>
+                    <th scope="col">チーム</th>
+                    <th scope="col">スコア</th>
+                    <th scope="col">半荘数</th>
+                  </tr>
+                </thead>
+                <tbody data-results-body="playerScores"></tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="results-block" id="results-top" aria-labelledby="results-top-heading">
+          <header class="results-block__head">
+            <p class="results-block__en">BEST SCORE TOP3</p>
+            <h3 id="results-top-heading">最高スコア TOP3</h3>
+          </header>
+          <div class="results-block__body" data-results="topScores">
+            <div class="results-empty-state" data-empty-state>
+              <p class="results-empty-state__badge"><span class="ribbon">BEFORE KICKOFF</span></p>
+              <p class="results-empty-state__title">開幕前｜2027年4月9日より更新</p>
+              <p class="results-empty-state__hint">1半荘の最高スコア TOP3 は開幕後に表示します。</p>
+            </div>
+            <ol class="top-scores" hidden data-filled-state data-results-body="topScores"></ol>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ftr">
+    <div class="shell">
+      <p class="ftr__title">三麻オレンジ杯</p>
+      <p class="ftr__meta">
+        <span>主催 水野かずなり</span>
+        <span>#三麻オレンジ杯</span>
+      </p>
+      <a class="ftr__top" href="#top">BACK TO TOP</a>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

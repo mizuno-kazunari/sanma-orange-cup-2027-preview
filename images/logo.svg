@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="仮ロゴ">
+  <circle cx="256" cy="256" r="248" fill="#FFB84D"/>
+  <circle cx="256" cy="256" r="232" fill="#FF7A1A"/>
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#fff" stroke-width="8"/>
+  <text x="256" y="248" text-anchor="middle" font-family="Yu Gothic, Hiragino Sans, Noto Sans JP, sans-serif" font-size="78" font-weight="700" fill="#fff">仮ロゴ</text>
+  <text x="256" y="312" text-anchor="middle" font-family="Yu Gothic, Hiragino Sans, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#FFF4E0">三麻オレンジ杯</text>
+</svg>
