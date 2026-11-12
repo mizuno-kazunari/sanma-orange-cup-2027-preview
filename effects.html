@@ -34,7 +34,7 @@
     <div class="shell">
       <div class="fx-intro">
         <h1>演出サンプル</h1>
-        <p>本ページと同じ雰囲気で、6つの演出をひとつずつ確認できます。番号か「前へ／次へ」で切り替えてください。</p>
+        <p>本ページと同じ雰囲気で、13の演出をひとつずつ確認できます。番号か「前へ／次へ」で切り替えてください。</p>
       </div>
 
       <p class="motion-note">お使いの環境では「動きを減らす」設定がオンのため、演出はほぼ静止して表示されます。</p>
@@ -49,11 +49,55 @@
             <li><button type="button" class="fx-num" role="tab" id="tab-4" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="4">4</button></li>
             <li><button type="button" class="fx-num" role="tab" id="tab-5" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="5">5</button></li>
             <li><button type="button" class="fx-num" role="tab" id="tab-6" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="6">6</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-7" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="7">7</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-8" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="8">8</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-9" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="9">9</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-10" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="10">10</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-11" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="11">11</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-12" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="12">12</button></li>
+            <li><button type="button" class="fx-num" role="tab" id="tab-13" aria-controls="fx-panel" aria-selected="false" tabindex="-1" data-fx="13">13</button></li>
           </ul>
           <button type="button" class="fx-step" data-fx-next>次へ</button>
         </div>
         <p class="fx-caption" data-fx-caption aria-live="polite">背景にみかんと麻雀牌が、ゆっくり浮かんでゆらゆらします。</p>
         <button type="button" class="btn btn-ghost fx-replay" data-fx-replay>もう一度再生</button>
+        <div class="fx-extras" data-fx-extras="8" hidden>
+          <p class="fx-extras__label" data-tod-label>日本時間に合わせた色です。</p>
+          <div class="fx-demo-btns" role="group" aria-label="時間帯のプレビュー">
+            <button type="button" class="fx-demo-btn" data-tod="morning">朝</button>
+            <button type="button" class="fx-demo-btn" data-tod="day">昼</button>
+            <button type="button" class="fx-demo-btn" data-tod="sunset">夕</button>
+            <button type="button" class="fx-demo-btn" data-tod="night">夜</button>
+          </div>
+        </div>
+        <div class="fx-extras" data-fx-extras="13" hidden>
+          <p class="fx-extras__label">大会の進行を切り替えて、雰囲気の違いを見てください。</p>
+          <div class="fx-demo-btns" role="group" aria-label="大会進行のプレビュー">
+            <button type="button" class="fx-demo-btn" data-phase="entry">エントリー受付中</button>
+            <button type="button" class="fx-demo-btn" data-phase="qual">予選開催中</button>
+            <button type="button" class="fx-demo-btn" data-phase="final">決勝</button>
+          </div>
+
+          <div class="scroll-fill">
+            <p class="scroll-fill__hint">この演出では、下までスクロールすると背景の色と模様が少しずつ変わります。</p>
+            <article class="demo-card scroll-fill__card">
+              <h3>予選のながれ</h3>
+              <p>開催期間内の自動マッチングで対戦します。スクロールを続けると、背景がレモンからオレンジ、夕焼け寄りへと移っていきます。</p>
+            </article>
+            <article class="demo-card scroll-fill__card">
+              <h3>決勝進出</h3>
+              <p>予選の上位3チームが決勝に進みます。3チーム総当たりの3戦で、いちばん楽しい時間を目指します。</p>
+            </article>
+            <article class="demo-card scroll-fill__card">
+              <h3>視聴のみなさまへ</h3>
+              <p>他者の打牌への批判、煽り行為、誹謗中傷はご遠慮ください。温かい応援をよろしくお願いします。</p>
+            </article>
+            <article class="demo-card scroll-fill__card">
+              <h3>ここが一番下です</h3>
+              <p>スクロールに合わせて、いちばん下では深めのオレンジとしましま模様になります。上に戻ると、また明るい色に戻ります。</p>
+            </article>
+          </div>
+        </div>
       </div>
 
       <div id="fx-panel" class="demo-stage" role="tabpanel" aria-labelledby="tab-1">
@@ -85,6 +129,28 @@
         </div>
 
         <div class="demo-stage__pattern" aria-hidden="true"></div>
+        <div class="bg-gradient" aria-hidden="true"></div>
+        <div class="bg-tod" aria-hidden="true"></div>
+        <div class="bg-scroll" aria-hidden="true">
+          <span class="bg-scroll__wash"></span>
+          <span class="bg-scroll__pattern bg-scroll__pattern--a"></span>
+          <span class="bg-scroll__pattern bg-scroll__pattern--b"></span>
+        </div>
+        <div class="bg-orbs" aria-hidden="true">
+          <span class="orb orb--1"></span>
+          <span class="orb orb--2"></span>
+          <span class="orb orb--3"></span>
+          <span class="orb orb--4"></span>
+        </div>
+        <div class="bg-swap" aria-hidden="true">
+          <span class="swap-layer swap-layer--dots"></span>
+          <span class="swap-layer swap-layer--stripes"></span>
+          <span class="swap-layer swap-layer--orange"></span>
+        </div>
+        <div class="bg-follow" aria-hidden="true">
+          <span class="follow-glow"></span>
+        </div>
+        <div class="bg-phase" aria-hidden="true"></div>
         <canvas id="confetti" aria-hidden="true"></canvas>
 
         <div class="demo-stage__content">
@@ -123,6 +189,7 @@
               <span class="hero__title-en">3人麻雀チーム戦</span>
             </h2>
             <p class="hero__dates" data-poyon style="--poyon-delay:0.22s">2027年4月9日（金）〜11日（日）</p>
+            <p class="phase-badge" data-phase-badge hidden>エントリー受付中</p>
             <div class="hero__cta" data-poyon style="--poyon-delay:0.28s">
               <a class="btn btn-entry" href="#" data-fx-entry>エントリーする</a>
             </div>
@@ -141,6 +208,26 @@
               <h3>優勝賞品</h3>
               <p>スイーツカタログをご用意しています。楽しい三日間にしましょう。</p>
               <a class="btn btn-ghost" href="#fx-panel" data-fx-sample-btn>サンプルを見る</a>
+            </article>
+          </div>
+
+          <div class="scroll-fill">
+            <p class="scroll-fill__hint">この演出では、下までスクロールすると背景の色と模様が少しずつ変わります。</p>
+            <article class="demo-card scroll-fill__card">
+              <h3>予選のながれ</h3>
+              <p>開催期間内の自動マッチングで対戦します。スクロールを続けると、背景がレモンからオレンジ、夕焼け寄りへと移っていきます。</p>
+            </article>
+            <article class="demo-card scroll-fill__card">
+              <h3>決勝進出</h3>
+              <p>予選の上位3チームが決勝に進みます。3チーム総当たりの3戦で、いちばん楽しい時間を目指します。</p>
+            </article>
+            <article class="demo-card scroll-fill__card">
+              <h3>視聴のみなさまへ</h3>
+              <p>他者の打牌への批判、煽り行為、誹謗中傷はご遠慮ください。温かい応援をよろしくお願いします。</p>
+            </article>
+            <article class="demo-card scroll-fill__card">
+              <h3>ここが一番下です</h3>
+              <p>スクロールに合わせて、いちばん下では深めのオレンジとしましま模様になります。上に戻ると、また明るい色に戻ります。</p>
             </article>
           </div>
         </div>

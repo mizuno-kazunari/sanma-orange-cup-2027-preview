@@ -7,10 +7,17 @@
     3: "画面をスクロールすると、要素がぽよんと弾んで現れます。",
     4: "ボタンに触れたり押したりすると、すっとつぶれてからゆらゆらします。",
     5: "カウントダウンの数字が変わるとき、パタンとめくれます。",
-    6: "この演出を開いたときと、エントリーボタンを押したときに、みかん色の紙吹雪がはじけます。"
+    6: "この演出を開いたときと、エントリーボタンを押したときに、みかん色の紙吹雪がはじけます。",
+    7: "オレンジ、ピーチ、レモンの色が、ゆっくり混ざりながら移り変わります。",
+    8: "日本時間に合わせて、朝は明るいオレンジ、夕方は夕焼け、夜は夜空の色になります。ボタンで各時間帯を試せます。",
+    9: "下へスクロールするほど、背景の色と模様が少しずつ変わります。",
+    10: "やわらかくぼかした光の玉が、ゆっくり漂いながら色を混ぜます。",
+    11: "ドット、しましま、オレンジ柄の模様が、数秒ごとにふんわり切り替わります。",
+    12: "マウスや指の位置に合わせて、背景の光が少しだけついてきます。",
+    13: "エントリー受付中・予選開催中・決勝の進行に合わせて、テーマが変わります。ボタンで切り替えられます。"
   };
 
-  var TOTAL = 6;
+  var TOTAL = 13;
   var KICKOFF = "2027-04-09T21:00:00+09:00";
   var current = 1;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -52,6 +59,16 @@
       if (rotor) { rotor.style.transition = "none"; rotor.style.transform = "none"; }
     });
     if (n === 3) startPoyon();
+    document.querySelectorAll("[data-fx-extras]").forEach(function (el) {
+      el.hidden = Number(el.getAttribute("data-fx-extras")) !== n;
+    });
+    if (n === 8) {
+      if (changed) todManual = null;
+      setTod(null);
+    }
+    if (n === 9) updateScroll();
+    var badge = document.querySelector("[data-phase-badge]");
+    if (badge) badge.hidden = n !== 13;
     if (n === 6) {
       if (changed || updateHash) burstConfetti();
     } else {
@@ -390,6 +407,102 @@
       if (current === 6) burstConfetti(btn);
     });
   });
+
+  // —— 8. 時間帯 ——
+  var TOD_LABELS = { morning: "朝", day: "昼", sunset: "夕", night: "夜" };
+  function jstTod() {
+    var h = Number(new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Tokyo", hour: "numeric", hourCycle: "h23" }).format(new Date()));
+    if (h >= 5 && h < 10) return "morning";
+    if (h >= 10 && h < 16) return "day";
+    if (h >= 16 && h < 19) return "sunset";
+    return "night";
+  }
+  var todManual = null;
+  function setTod(key) {
+    if (key) todManual = key;
+    var k = todManual || jstTod();
+    document.body.setAttribute("data-tod", k);
+    document.querySelectorAll("[data-tod]").forEach(function (b) {
+      if (b === document.body) return;
+      b.setAttribute("aria-pressed", b.getAttribute("data-tod") === k ? "true" : "false");
+    });
+    var label = document.querySelector("[data-tod-label]");
+    if (label) {
+      label.textContent = todManual
+        ? "プレビュー中：" + TOD_LABELS[k] + "（ボタンで切り替え）"
+        : "いまの日本時間に合わせて「" + TOD_LABELS[k] + "」の色です。";
+    }
+  }
+  document.querySelectorAll("button[data-tod]").forEach(function (b) {
+    b.addEventListener("click", function () { setTod(b.getAttribute("data-tod")); });
+  });
+  setTod(null);
+  setInterval(function () { if (!todManual) setTod(null); }, 60000);
+
+  // —— 9. スクロール ——
+  var scrollTicking = false;
+  function updateScroll() {
+    scrollTicking = false;
+    if (current !== 9 || !panel) return;
+    var rect = panel.getBoundingClientRect();
+    var range = Math.max(1, rect.height - window.innerHeight);
+    var tval = Math.min(1, Math.max(0, -rect.top / range));
+    panel.style.setProperty("--scroll-t", tval.toFixed(3));
+  }
+  window.addEventListener("scroll", function () {
+    if (current !== 9 || scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(updateScroll);
+  }, { passive: true });
+
+  // —— 12. ポインター追従 ——
+  var followTarget = { x: 50, y: 40 };
+  var followPos = { x: 50, y: 40 };
+  var followRaf = 0;
+  function followStep() {
+    followRaf = 0;
+    if (current !== 12 || !panel) return;
+    followPos.x += (followTarget.x - followPos.x) * 0.08;
+    followPos.y += (followTarget.y - followPos.y) * 0.08;
+    panel.style.setProperty("--fx", followPos.x.toFixed(2) + "%");
+    panel.style.setProperty("--fy", followPos.y.toFixed(2) + "%");
+    if (Math.abs(followTarget.x - followPos.x) > 0.1 || Math.abs(followTarget.y - followPos.y) > 0.1) {
+      followRaf = requestAnimationFrame(followStep);
+    }
+  }
+  if (panel) {
+    panel.addEventListener("pointermove", function (ev) {
+      if (current !== 12) return;
+      var r = panel.getBoundingClientRect();
+      var x = ((ev.clientX - r.left) / r.width) * 100;
+      var y = ((ev.clientY - r.top) / r.height) * 100;
+      // 少しだけ追従（中央寄りに弱める）
+      followTarget.x = 50 + (x - 50) * 0.6;
+      followTarget.y = 40 + (y - 40) * 0.6;
+      if (reduceMotion) {
+        followPos.x = followTarget.x; followPos.y = followTarget.y;
+        panel.style.setProperty("--fx", followPos.x + "%");
+        panel.style.setProperty("--fy", followPos.y + "%");
+        return;
+      }
+      if (!followRaf) followRaf = requestAnimationFrame(followStep);
+    }, { passive: true });
+  }
+
+  // —— 13. 大会進行 ——
+  var PHASE_LABELS = { entry: "エントリー受付中", qual: "予選開催中", final: "決勝" };
+  function setPhase(k) {
+    document.body.setAttribute("data-phase", k);
+    document.querySelectorAll("button[data-phase]").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-phase") === k ? "true" : "false");
+    });
+    var badge = document.querySelector("[data-phase-badge]");
+    if (badge) { badge.textContent = PHASE_LABELS[k]; badge.hidden = false; }
+  }
+  document.querySelectorAll("button[data-phase]").forEach(function (b) {
+    b.addEventListener("click", function () { setPhase(b.getAttribute("data-phase")); });
+  });
+  setPhase("entry");
 
   setEffect(parseHash(), true);
 })();

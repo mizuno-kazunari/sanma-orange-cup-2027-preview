@@ -382,3 +382,322 @@ body[data-effect="5"] .cd__unit { min-width: clamp(64px, 16vw, 100px); }
   }
   .poyon-spacer { display: none !important; }
 }
+
+/* —— 共通：7〜13の背景レイヤー —— */
+.bg-gradient,
+.bg-tod,
+.bg-scroll,
+.bg-orbs,
+.bg-swap,
+.bg-follow,
+.bg-phase {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+body[data-effect="7"] .bg-gradient,
+body[data-effect="8"] .bg-tod,
+body[data-effect="9"] .bg-scroll,
+body[data-effect="10"] .bg-orbs,
+body[data-effect="11"] .bg-swap,
+body[data-effect="12"] .bg-follow,
+body[data-effect="13"] .bg-phase {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fx-nums { flex-wrap: wrap; justify-content: center; }
+.fx-extras {
+  margin: 0.75rem 0 0;
+  text-align: center;
+}
+.fx-extras[hidden] { display: none !important; }
+.fx-extras__label {
+  margin: 0 0 0.5rem;
+  font-size: 0.86rem;
+  color: var(--c-ink-mute);
+}
+.fx-demo-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.fx-demo-btn {
+  appearance: none;
+  min-height: 44px;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--c-border);
+  background: #fff;
+  color: var(--c-ink);
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.fx-demo-btn:hover {
+  border-color: var(--c-accent);
+  background: var(--c-accent-soft);
+  color: var(--c-accent-deep);
+}
+.fx-demo-btn[aria-pressed="true"] {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #fff;
+}
+
+.phase-badge {
+  display: none;
+  margin: 0 auto 1rem;
+  width: fit-content;
+  padding: 0.28rem 1rem;
+  border-radius: 999px;
+  background: var(--c-accent);
+  color: #fff;
+  font-family: var(--font-mincho);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+}
+body[data-effect="13"] .phase-badge { display: inline-flex; }
+
+/* 7. ゆったりグラデーション */
+.bg-gradient {
+  background: linear-gradient(125deg, #FF7A1A, #FFC9A0, #FFE566, #FFB04A, #FF8A3D, #FF7A1A);
+  background-size: 340% 340%;
+  animation: gradShift 20s ease-in-out infinite;
+}
+@keyframes gradShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 8. 時間帯 */
+.bg-tod { transition: background 0.6s ease, box-shadow 0.6s ease; }
+body[data-tod="morning"] .bg-tod {
+  background:
+    radial-gradient(90% 70% at 50% -10%, rgba(255, 214, 80, 0.65), transparent 55%),
+    linear-gradient(180deg, #FFE07A 0%, #FFB347 48%, #FF8A3D 100%);
+}
+body[data-tod="day"] .bg-tod {
+  background:
+    radial-gradient(80% 50% at 80% 0%, rgba(255, 247, 220, 0.8), transparent 50%),
+    linear-gradient(180deg, #FFF4DC 0%, #FFD39A 50%, #FF9A40 100%);
+}
+body[data-tod="sunset"] .bg-tod {
+  background:
+    radial-gradient(70% 55% at 80% 20%, rgba(255, 120, 150, 0.4), transparent 55%),
+    linear-gradient(180deg, #FFB088 0%, #FF7A4A 45%, #C44E8A 100%);
+}
+body[data-tod="night"] .bg-tod {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255, 236, 190, 0.55), transparent 28%),
+    radial-gradient(circle at 20% 80%, rgba(80, 90, 180, 0.4), transparent 40%),
+    linear-gradient(180deg, #1B1F3B 0%, #2A1E4A 55%, #141428 100%);
+}
+body[data-effect="8"][data-tod="night"] .demo-hero .hero__title,
+body[data-effect="8"][data-tod="night"] .demo-hero .hero__title-en,
+body[data-effect="8"][data-tod="night"] .demo-hero .hero__dates,
+body[data-effect="8"][data-tod="night"] .cd__label,
+body[data-effect="8"][data-tod="night"] .cd__sub,
+body[data-effect="8"][data-tod="night"] .cd__cap,
+body[data-effect="8"][data-tod="night"] .cd__sep,
+body[data-effect="8"][data-tod="night"] .cd__num,
+body[data-effect="8"][data-tod="night"] .flip-digit__face {
+  color: #FFF6EB;
+}
+body[data-effect="8"][data-tod="night"] .cd--hero,
+body[data-effect="8"][data-tod="night"] .demo-hero .cd--hero {
+  background: linear-gradient(165deg, rgba(30, 34, 70, 0.72), rgba(20, 18, 40, 0.8));
+  border-color: rgba(255, 214, 160, 0.35);
+}
+body[data-effect="8"][data-tod="night"] .hero__logo-plate {
+  background: rgba(255, 247, 240, 0.92);
+}
+
+/* 9. スクロールで色と模様が移る */
+.bg-scroll { overflow: hidden; }
+.bg-scroll__wash,
+.bg-scroll__pattern {
+  position: absolute;
+  inset: 0;
+}
+.bg-scroll__wash {
+  background: linear-gradient(180deg, #FFF3B0 0%, #FFD38A 42%, #FF9A4A 74%, #E05A2A 100%);
+  background-size: 100% 320%;
+  background-position: 0 calc(var(--scroll-t, 0) * 100%);
+}
+.bg-scroll__pattern {
+  inset: -30%;
+  transition: none;
+}
+.bg-scroll__pattern--a {
+  background-image: radial-gradient(circle at 8px 8px, rgba(255, 122, 26, 0.28) 5px, transparent 6px);
+  background-size: 32px 32px;
+  opacity: calc(1 - var(--scroll-t, 0));
+}
+.bg-scroll__pattern--b {
+  background-image: repeating-linear-gradient(
+    128deg,
+    rgba(255, 255, 255, 0.18) 0 12px,
+    rgba(224, 90, 42, 0.18) 12px 24px
+  );
+  opacity: var(--scroll-t, 0);
+}
+.scroll-fill { display: none; }
+body[data-effect="9"] .scroll-fill {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.6rem;
+  padding-bottom: 2rem;
+}
+.scroll-fill__hint {
+  margin: 0;
+  text-align: center;
+  color: var(--c-ink-soft);
+  font-size: 0.9rem;
+}
+.scroll-fill__card { min-height: 28vh; }
+
+/* 10. やわらかい光の玉 */
+.bg-orbs { overflow: hidden; background: linear-gradient(180deg, #FFF6E8, #FFE0C0); }
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.8;
+  will-change: transform;
+  animation: orbDrift 22s ease-in-out infinite;
+}
+.orb--1 { width: 240px; height: 240px; left: -6%; top: 4%; background: #FFB347; animation-duration: 24s; }
+.orb--2 { width: 200px; height: 200px; right: -4%; top: 18%; background: #FFE566; animation-duration: 20s; animation-delay: -6s; }
+.orb--3 { width: 260px; height: 260px; left: 22%; bottom: -10%; background: #FF7A1A; animation-duration: 26s; animation-delay: -11s; }
+.orb--4 { width: 180px; height: 180px; right: 18%; bottom: 12%; background: #FF9AA2; animation-duration: 18s; animation-delay: -3s; }
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(28px, -24px) scale(1.08); }
+}
+@media (max-width: 640px) {
+  .orb { filter: blur(22px); }
+  .orb--4 { display: none; }
+  .orb--1, .orb--2, .orb--3 { width: 160px; height: 160px; }
+}
+
+/* 11. 模様のクロスフェード */
+.bg-swap { overflow: hidden; background: #FFF4E8; }
+.swap-layer {
+  position: absolute;
+  inset: -25%;
+  opacity: 0;
+  animation: swapFade 15s ease-in-out infinite;
+}
+.swap-layer--dots {
+  background-image: radial-gradient(circle at 8px 8px, rgba(255, 122, 26, 0.34) 6px, transparent 7px);
+  background-size: 34px 34px;
+  animation-delay: 0s;
+}
+.swap-layer--stripes {
+  background-image: repeating-linear-gradient(
+    128deg,
+    rgba(255, 122, 26, 0.16) 0 14px,
+    rgba(255, 184, 77, 0.12) 14px 28px,
+    transparent 28px 48px
+  );
+  animation-delay: -5s;
+}
+.swap-layer--orange {
+  background-image:
+    repeating-linear-gradient(-45deg, rgba(255, 122, 26, 0.2) 0 10px, transparent 10px 20px),
+    repeating-linear-gradient(45deg, rgba(255, 184, 77, 0.18) 0 10px, transparent 10px 20px);
+  animation-delay: -10s;
+}
+@keyframes swapFade {
+  0%, 33.32%, 100% { opacity: 0; }
+  6.66%, 26.66% { opacity: 1; }
+}
+
+/* 12. ポインターにやさしく追従 */
+.bg-follow {
+  background: linear-gradient(180deg, #FFF6EC, #FFE2C4);
+  overflow: hidden;
+}
+.follow-glow {
+  position: absolute;
+  width: min(320px, 70vw);
+  height: min(320px, 70vw);
+  left: var(--fx, 50%);
+  top: var(--fy, 40%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 210, 100, 0.8) 0%, rgba(255, 122, 26, 0.35) 42%, transparent 70%);
+  pointer-events: none;
+  will-change: left, top;
+}
+
+/* 13. 大会進行テーマ */
+.bg-phase { transition: background 0.5s ease, opacity 0.5s ease; }
+body[data-phase="entry"] .bg-phase {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 184, 77, 0.28), transparent 36%),
+    linear-gradient(180deg, #FFF8F0 0%, #FFE8D0 100%);
+}
+body[data-phase="entry"] .bg-phase::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 6px 6px, rgba(255, 122, 26, 0.16) 3px, transparent 4px);
+  background-size: 28px 28px;
+}
+body[data-phase="qual"] .bg-phase {
+  background: linear-gradient(160deg, #FFE0B0 0%, #FF9A3A 58%, #F06B16 100%);
+}
+body[data-phase="qual"] .bg-phase::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.16) 0 12px,
+    rgba(229, 90, 0, 0.12) 12px 24px
+  );
+}
+body[data-phase="final"] .bg-phase {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 220, 120, 0.55), transparent 46%),
+    linear-gradient(180deg, #F6D48A 0%, #E8892A 48%, #B84310 100%);
+}
+body[data-phase="final"] .bg-phase::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.28) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 60%, rgba(255, 236, 180, 0.35) 0 2px, transparent 3px);
+  background-size: 80px 80px, 110px 110px;
+}
+body[data-effect="13"][data-phase="final"] .phase-badge {
+  background: linear-gradient(100deg, #B84310, #E8892A);
+}
+body[data-effect="13"][data-phase="qual"] .phase-badge {
+  background: #E55A00;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-gradient,
+  .orb,
+  .swap-layer {
+    animation: none !important;
+  }
+  .bg-tod,
+  .bg-phase {
+    transition: none !important;
+  }
+  .swap-layer--dots { opacity: 1; }
+  .swap-layer--stripes,
+  .swap-layer--orange { opacity: 0; }
+}
